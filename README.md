@@ -1,14 +1,26 @@
-# Moving-Averages-BackTest
-Quantitative backtesting engine for Moving Average Crossovers and a proprietary adaptive moving average framework designed to eliminate whipsaws.
+# Quantitative Backtest: Demystifying "Guru" Trading Strategies 📈
 
-## Features ##
-- **Traditional Models:** Standard Simple Moving Average (SMA) and Exponential Moving Average (EMA) crossovers.
-- **Adaptive Framework:** Proprietary volatility damping and Z-score spread filters to eliminate false breakout signals.
-- **Performance Metrics:** Comprehensive output tracking drawdowns, win rates, and mathematical expectancies.
+> An academic, data-driven approach to testing the viability of SMA & EMA Crossover strategies against real-world market friction.
 
-## Requirements
-Install the required dependencies using:
-```bash
-pip install -r requirements.txt
+🌙 **Note:** For the best visual experience of the interactive charts, please set your browser or system to **Dark Mode**.
 
-streamlit run "BackTest.py"
+## 📖 Project Overview
+This project was developed as an independent quantitative research study. The goal is to demystify popular technical indicators (like the Simple Moving Average and Exponential Moving Average crossovers) heavily promoted by financial influencers. 
+
+Instead of relying on theoretical perfect conditions, this backtest introduces real-world variables such as **slippage**, **transaction fees (0.1%)**, and **intraday stop-losses** across different market regimes (Bull, Bear, and Volatile ranges) to calculate the true mathematical expectancy of these strategies.
+
+## ⚙️ How to Run the Code Locally
+
+To explore the interactive dashboard and the data visualizations, follow these simple steps:
+
+### Prerequisites
+You need to have **Python** installed on your computer. An IDE like PyCharm, VS Code, or a simple terminal is sufficient.
+
+### Step-by-step Installation
+1. **Download the project**: Clone this repository to your local machine or download the ZIP file.
+2. **Open your terminal**: Navigate to the folder where the project is saved.
+3. **Install the dependencies**: The dashboard relies on several Python libraries. Install them by running this command in your terminal:
+   ```bash
+   pip install streamlit pandas numpy yfinance plotly
+
+   streamlit run "BackTest.py"
