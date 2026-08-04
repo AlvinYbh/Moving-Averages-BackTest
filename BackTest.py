@@ -1,4 +1,3 @@
-# SMA/EMA/AAMA
 import random
 import numpy as np
 import plotly.graph_objects as go
@@ -68,7 +67,7 @@ FEE_RATE = 0.001
 
 MARKETS = {
     "Stocks": ["AAPL", "TSLA", "NVDA"],
-    "Indices": ["GSPC", "NDX"],
+    "Indices": ["^GSPC", "^NDX"],
     "Crypto": ["BTC-USD", "ETH-USD"]
 }
 
@@ -80,7 +79,8 @@ def run_realistic_backtest(ticker, start, end, ma_f, ma_s, apply_inf, inf_rate, 
         return None, None
 
     if isinstance(df.columns, pd.MultiIndex):
-        df.columns = df.columns.droplevel(1)
+        df.columns = df.columns.get_level_values(0)
+
     if "EMA" in ma_type_str:
         df['MA_Fast'] = df['Close'].ewm(span=ma_f, adjust=False).mean()
         df['MA_Slow'] = df['Close'].ewm(span=ma_s, adjust=False).mean()
@@ -298,7 +298,11 @@ selected_categories = st.multiselect(
     default=list(MARKETS.keys())
 )
 
-active_tickers = [ticker for category in selected_categories for ticker in MARKETS[category]]
+active_tickers = [
+    ticker for category in selected_categories 
+    for ticker in MARKETS[category] 
+    if ticker in all_portfolio_values.columns
+]
 
 if not active_tickers:
     st.warning("Please select at least one market category to display global analysis.")
