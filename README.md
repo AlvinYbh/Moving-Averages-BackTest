@@ -10,4 +10,5 @@ Quantitative backtesting engine for Moving Average Crossovers and a proprietary 
 Install the required dependencies using:
 ```bash
 pip install -r requirements.txt
+
 streamlit run "BackTest.py"
