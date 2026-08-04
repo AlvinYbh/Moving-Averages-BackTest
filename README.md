@@ -20,6 +20,7 @@ You need to have **Python** installed on your computer. An IDE like PyCharm, VS 
 1. **Download the project**: Clone this repository to your local machine or download the ZIP file.
 2. **Open your terminal**: Navigate to the folder where the project is saved.
 3. **Install the dependencies**: The dashboard relies on several Python libraries. Install them by running this command in your terminal:
+   
    ```bash
    pip install streamlit pandas numpy yfinance plotly
 
